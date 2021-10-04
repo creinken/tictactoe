@@ -1,11 +1,11 @@
 import BoardSquare from "./BoardSquare";
 
 const Board = (props) => {
-    function createSquare(value) {
-        return <BoardSquare value={value} />
-    }
-
     const player = 'X';
+    
+    function createSquare(value) {
+        return <BoardSquare value={value} currentPlayer={player}/>
+    }
 
     return (
         <div className="Game-Board">
