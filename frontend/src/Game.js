@@ -3,7 +3,8 @@ import Board from './Board';
 
 class Game extends Component {
     state = {
-        board: [['','',''],['','',''],['','','']]
+        board: [['','',''],['','',''],['','','']],
+        players: ['X','O']
     };
     
     render() {
