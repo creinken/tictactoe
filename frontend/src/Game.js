@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Board from './Board';
 
-class Game extends React.Component {
+class Game extends Component {
     state = {
         board: [['','',''],['','',''],['','','']]
     };
@@ -9,7 +9,7 @@ class Game extends React.Component {
     render() {
         return (
             <div className="Game">
-                <Board />
+                <Board board={this.state.board} />
             </div>
         );
     }
