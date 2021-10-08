@@ -3,7 +3,7 @@
         private $host = "127.0.0.1";
         private $database_name = "tictactoeapidb";
         private $username = "root";
-        private $password = "";
+        private $password = "Re@per23";
 
         public $conn;
 
