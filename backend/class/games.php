@@ -106,6 +106,7 @@
             $stmt->bindParam(":playerO", $this->playerO);
             $stmt->bindParam(":current_player", $this->current_player);
             $stmt->bindParam(":game_over", $this->game_over);
+            $stmt->bindParam(":id", $this->id);
 
             if($stmt->execute()){
                 return true;
