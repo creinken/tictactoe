@@ -9,15 +9,17 @@
 
     include_once '../config/database.php';
     include_once '../class/games.php';
+    include_once '../class/moves.php';
 
     $database = new Database();
     $db = $database->getConnection();
 
     $item = new Game($db);
+    $moves = new Moves($db);
 
     $item->id = isset($_GET['id']) ? $_GET['id'] : die();
 
-    $item->getSingleGame();
+    $item->getSingleGame($moves);
 
     if ($item->playerX != null) {
         // create array
@@ -26,7 +28,8 @@
             "playerX" => $item->playerX,
             "playerO" => $item->playerO,
             "current_player" => $item->current_player,
-            "game_over" => $item->game_over
+            "game_over" => $item->game_over,
+            "moves" => $item->moves
         );
 
         http_response_code(200);

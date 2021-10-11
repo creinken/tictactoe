@@ -55,7 +55,7 @@
         }
 
         // READ single
-        public function getSingleGame(){
+        public function getSingleGame($moves){
             $sqlQuery = "SELECT
                         id,
                         playerX,
@@ -79,6 +79,7 @@
             $this->playerO = $dataRow['playerO'];
             $this->current_player = $dataRow['current_player'];
             $this->game_over = $dataRow['game_over'];
+            $this->moves = $moves->getMovesMatchingGame($dataRow['id']);
         }
 
         // UPDATE

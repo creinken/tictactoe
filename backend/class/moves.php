@@ -28,6 +28,42 @@
             return $stmt;
         }
 
+        // GET ALL MATCHING GAME ID
+        public function getMovesMatchingGame(int $game_id){
+            $sqlQuery = "SELECT 
+                        id,
+                        squareX,
+                        squareY,
+                        player,
+                        game_id,
+                        made_at 
+                      FROM
+                        " . $this->db_table . "
+                      WHERE
+                        game_id = ?";
+            $stmt = $this->conn->prepare($sqlQuery);
+            $stmt->bindParam(1, $game_id);
+            $stmt->execute();
+            $movesArr = array();
+            $movesArr["body"] = array();
+            $movesArr["itemCount"] = $itemCount;
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                extract($row);
+                $e = array(
+                    "id" => $id,
+                    "squareX" => $squareX,
+                    "squareY" => $squareY,
+                    "player" => $player,
+                    "made_at" => $made_at
+                );
+
+                array_push($movesArr["body"], $e);
+            }
+
+            return $movesArr["body"];
+        }
+
         // CREATE
         public function createMove(){
             $sqlQuery = "INSERT INTO
