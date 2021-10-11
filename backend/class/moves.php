@@ -44,10 +44,13 @@
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->bindParam(1, $game_id);
             $stmt->execute();
+
+            // create array for fetch and collect process
             $movesArr = array();
             $movesArr["body"] = array();
             $movesArr["itemCount"] = $itemCount;
 
+            // fetch each matching record and push to array for return
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 extract($row);
                 $e = array(
