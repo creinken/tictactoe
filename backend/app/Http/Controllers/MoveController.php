@@ -11,9 +11,9 @@ class MoveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Game $game)
     {
-        return Move::all();
+        return $game.moves();
     }
 
     /**

@@ -19,3 +19,5 @@ Route::middleware('auth:sanctum')->get('user', function (Request $request) {
 });
 
 Route::apiResource('games', 'GameController');
+Route::get('games/{game}/moves', 'MoveController@index');
+Route::post('games/{game}/moves', 'MoveController@store');
