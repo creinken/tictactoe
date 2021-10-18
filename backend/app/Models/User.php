@@ -12,6 +12,17 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // relationships
+    public function games()
+    {
+        return $this->hasMany(Game::class);
+    }
+
+    public function moves()
+    {
+        return $this->hasMany(Move::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
