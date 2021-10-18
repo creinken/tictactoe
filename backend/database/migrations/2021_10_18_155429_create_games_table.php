@@ -15,10 +15,10 @@ class CreateGamesTable extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
-            $table->playerX();
-            $table->playerO();
-            $table->current_player();
-            $table->game_over();
+            $table->foreign('playerX')->references('id')->on('users');
+            $table->foreign('playerO')->references('id')->on('users');
+            $table->string('current_player');
+            $table->boolean('game_over');
             $table->timestamps();
         });
     }
