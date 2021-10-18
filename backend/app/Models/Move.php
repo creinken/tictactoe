@@ -9,8 +9,14 @@ class Move extends Model
 {
     use HasFactory;
 
+    // relationships
     public function game()
     {
         return $this->belongsTo(Game::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
