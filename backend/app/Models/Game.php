@@ -9,8 +9,14 @@ class Game extends Model
 {
     use HasFactory;
 
+    // relationships
     public function moves()
     {
-        return $this->belongsTo(Move::class);
+        return $this->belongsToMany(Move::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 }
