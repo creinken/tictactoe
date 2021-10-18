@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class GamesController extends Controller
+class GameController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class GamesController extends Controller
      */
     public function index()
     {
-        //
+        return Game::all();
     }
 
     /**
@@ -24,7 +24,8 @@ class GamesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $game = Game::create($request->all());
+        return redirect($this->show($game));
     }
 
     /**
@@ -33,9 +34,9 @@ class GamesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Game $game)
     {
-        //
+        return $game;
     }
 
     /**
@@ -45,9 +46,11 @@ class GamesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Game $game)
     {
-        //
+        $game->update($request->all());
+
+        return response()->json($game, 200);
     }
 
     /**
@@ -56,8 +59,10 @@ class GamesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Game $game)
     {
-        //
+        $game->delete();
+
+        return response()->json(null, 204);
     }
 }
