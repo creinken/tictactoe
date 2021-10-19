@@ -14,9 +14,11 @@ class CreateMovesTable extends Migration
     public function up()
     {
         Schema::create('moves', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('squareX');
             $table->integer('squareY');
+            $table->integer('user_id')->unsigned();
+            $table->integer('game_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('game_id')->references('id')->on('games');
             $table->timestamps();

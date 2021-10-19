@@ -14,7 +14,9 @@ class CreateGamesTable extends Migration
     public function up()
     {
         Schema::create('games', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->integer('playerX')->unsigned();
+            $table->integer('playerO')->unsigned();
             $table->foreign('playerX')->references('id')->on('users');
             $table->foreign('playerO')->references('id')->on('users');
             $table->string('current_player');
