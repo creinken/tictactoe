@@ -26,7 +26,7 @@ class GameController extends Controller
     public function store(Request $request)
     {
         $game = Game::create($request->all());
-        return redirect($this->show($game));
+        return $game;
     }
 
     /**
@@ -36,8 +36,11 @@ class GameController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Game $game)
-    {
-        return $game;
+    {   
+        // for some reason returning an array [$game, $game->moves] returns the moves twice
+        // this method returns just the game with the moves nested.
+        $full_game = ['game' => $game, 'moves' => $game->moves];
+        return $full_game['game'];
     }
 
     /**

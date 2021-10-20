@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Move;
+use App\Models\User;
 
 class Game extends Model
 {
@@ -13,11 +15,11 @@ class Game extends Model
     // relationships
     public function moves()
     {
-        return $this->belongsToMany(Move::class);
+        return $this->hasMany(Move::class);
     }
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->hasMany(User::class);
     }
 }
