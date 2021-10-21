@@ -5,7 +5,7 @@ const Board = () => {
     const player = 'X';
     
     function createSquare(value, X, Y) {
-        return <BoardSquare value={value} X={X} Y={Y} currentPlayer={player}/>
+        return <BoardSquare value={value} X={X} Y={Y}/>
     }
 
     return (
