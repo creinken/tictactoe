@@ -1,6 +1,6 @@
 import BoardSquare from "../components/BoardSquare";
 
-const Board = (props) => {
+const Board = () => {
     const player = 'X';
     
     function createSquare(value) {
@@ -10,7 +10,7 @@ const Board = (props) => {
     return (
         <div className="Game-Board">
             <div className="player">Current Player: {player}</div>
-            <div className="board-row">
+            {/* <div className="board-row">
                 {createSquare(props.board[0][0])}
                 {createSquare(props.board[0][1])}
                 {createSquare(props.board[0][2])}
@@ -24,7 +24,7 @@ const Board = (props) => {
                 {createSquare(props.board[2][0])}
                 {createSquare(props.board[2][1])}
                 {createSquare(props.board[2][2])}
-            </div>
+            </div> */}
 
         </div>
     );
