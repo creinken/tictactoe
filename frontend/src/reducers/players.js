@@ -1,15 +1,13 @@
-const playersReducer = (state = { players: [] }, action) => {
+const playersReducer = (state = [], action) => {
     switch (action.type) {
         case 'PLAYER_JOIN':
             return {
-                ...state,
-                players: [...state.players, action.payload]
+                ...state + action.payload
             }
         
         case 'PLAYER_LEAVE':
             return {
-                ...state,
-                players: state.players.filter(player => player.id !== action.id)
+                state: state.filter(player => player.id !== action.id)
             }
     
         default:

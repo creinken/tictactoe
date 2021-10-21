@@ -10,7 +10,7 @@ class Game extends Component {
     render() {
         return (
             <div className="Game">
-                <Board board={this.state.board} players={this.state.players} />
+                {/* <Board board={this.state.board} players={this.state.players} /> */}
             </div>
         );
     }
