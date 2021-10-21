@@ -1,4 +1,4 @@
-import BoardSquare from "./BoardSquare";
+import BoardSquare from "../components/BoardSquare";
 
 const Board = (props) => {
     const player = 'X';

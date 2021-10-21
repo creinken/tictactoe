@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Game from './Game';
+import Game from './containers/Game';
 import reportWebVitals from './reportWebVitals';
 
 import { Provider } from 'react-redux';
