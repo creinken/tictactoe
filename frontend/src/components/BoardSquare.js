@@ -5,7 +5,7 @@ const BoardSquare = (props) => {
     const board = useSelector(state => state.board);
     const dispatch = useDispatch();
     const token = 'X';
-    console.log(props)
+    console.log(board)
 
     const handleOnClick = (board, X, Y, token) => {
         let newBoard = board;
