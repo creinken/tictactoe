@@ -1,7 +1,7 @@
 const BoardSquare = (props) => {
 
     return (
-        <button className="square" onClick={props.value=props.currentPlayer}>
+        <button className="square">
             {props.value}
         </button>
     );
