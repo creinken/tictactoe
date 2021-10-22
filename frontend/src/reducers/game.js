@@ -1,4 +1,4 @@
-const gameReducer = (state = { id: 0, players: [], current_player: '', game_over: false, moves: [], board: [['','',''],['','',''],['','','']] }, action) => {
+const gameReducer = (state = { id: 0, players: [], current_player: '', game_over: false, moves: [], board: [['','',''],['','',''],['','','']], loading: false }, action) => {
     switch (action.type) {
         case 'PLAYER_JOIN':
             return {
@@ -10,6 +10,20 @@ const gameReducer = (state = { id: 0, players: [], current_player: '', game_over
             return {
                 ...state,
                 players: state.players.filter(player => player.id !== action.id)
+            }
+        
+        case 'LOADING_MOVES':
+            return {
+                ...state,
+                moves: [...state.moves],
+                loading: true
+            }
+
+        case 'GET_MOVES':
+            return {
+                ...state,
+                moves: action.payload,
+                loading: false
             }
         
         case 'ADD_MOVE':

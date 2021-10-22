@@ -1,3 +1,5 @@
+const serverURL = 'http://localhost:8000';
+
 export const player_join = (player) => {
     return {
         type: 'PLAYER_JOIN',
@@ -16,6 +18,17 @@ export const add_move = (move) => {
     return {
         type: 'ADD_MOVE',
         payload: move
+    }
+}
+
+export const fetchMoves = (url) => {
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_MOVES'})
+        fetch(`${serverURL}${url}`)
+        .then(res => { return res.json()})
+        .then(json => {
+            dispatch({ type: 'GET_MOVES', payload: json })
+        })
     }
 }
 
