@@ -1,4 +1,4 @@
-const gameReducer = (state = { id: 0, players: [], current_player: '', game_over: false, moves: [] }, action) => {
+const gameReducer = (state = { id: 0, players: [], current_player: '', game_over: false, moves: [], board: [['','',''],['','',''],['','','']] }, action) => {
     switch (action.type) {
         case 'PLAYER_JOIN':
             return {
@@ -22,6 +22,18 @@ const gameReducer = (state = { id: 0, players: [], current_player: '', game_over
             return {
                 ...state,
                 game_over: true
+            }
+        
+        case 'ADD_TOKEN':
+            return {
+                ...state,
+                board: state.board.map((innerArray, index) => {
+                    if (index === action.payload.x) return innerArray.map((item, index) => {
+                        if (index === action.payload.y) return action.payload.token
+                        return item
+                    })
+                    return innerArray
+                })
             }
 
         default:

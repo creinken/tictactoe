@@ -1,6 +1,9 @@
-export const add_token = (board) => {
+export const add_token = ([X, Y, token]) => {
     return {
         type: 'ADD_TOKEN',
-        payload: board
+        payload: {x: X,
+                y: Y,
+                token: token
+        }
     }
 }

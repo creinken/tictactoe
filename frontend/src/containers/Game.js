@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import Board from './Board';
 
 class Game extends Component {
-    state = {
-        board: [['','',''],['','',''],['','','']],
-        players: ['X','O']
-    };
     
     render() {
         return (

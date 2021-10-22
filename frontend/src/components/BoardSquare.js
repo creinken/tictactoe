@@ -1,22 +1,31 @@
-import { useSelector, useDispatch } from "react-redux";
+import { connect } from "react-redux";
+import React, { Component } from 'react';
 import { add_token } from "../actions/board";
 
-const BoardSquare = (props) => {
-    const board = useSelector(state => state.board);
-    const dispatch = useDispatch();
-    const token = 'X';
+class BoardSquare extends Component {
+    token = 'X';
 
-    const handleOnClick = (board, X, Y, token) => {
-        let newBoard = board;
-        newBoard[X][Y] = token;
-        return newBoard;
+    handleOnClick(X, Y, token) {
+        let payload = [X, Y, token];
+        return payload;
     }
 
-    return (
-        <button className="square" onClick={() => dispatch(add_token(handleOnClick(board, props.X, props.Y, token)))}>
-            {props.value}
-        </button>
-    );
+    render () {
+        return (
+            <button className="square" onClick={() => this.props.add_token(this.handleOnClick(this.props.X, this.props.Y, this.token))}>
+                {this.props.board[this.props.X][this.props.Y]}
+                {console.log(this.props)}
+            </button>
+        );
+    }
 }
 
-export default BoardSquare
+const mapStateToProps = state => {
+    return {board: state.game.board}
+}
+
+const mapDispatchToProps = dispatch => {
+    return {add_token: (board) => dispatch(add_token(board))}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoardSquare)
