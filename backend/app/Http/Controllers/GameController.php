@@ -39,7 +39,7 @@ class GameController extends Controller
     {   
         // for some reason returning an array [$game, $game->moves] returns the moves twice
         // this method returns just the game with the moves nested.
-        $full_game = ['game' => $game, 'moves' => $game->moves];
+        $full_game = ['game' => $game, 'moves' => $game->moves]; //next todo, hand craft returned json string of game information (json decode the board)
         return $full_game['game'];
     }
 
