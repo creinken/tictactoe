@@ -24,11 +24,11 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
 
         // create dummy games
-        $game1 = Game::create(['playerX' => $reinken->id,    'playerO' => $pike->id, 'current_player' => $pike->id, 'game_over' => 1]);
-        $game2 = Game::create(['playerX' => $reinken->id,    'playerO' => $sara->id, 'current_player' => $sara->id, 'game_over' => 1]);
-        $game3 = Game::create(['playerX' => $pike->id,       'playerO' => $sara->id, 'current_player' => $pike->id, 'game_over' => 1]);
-        $game4 = Game::create(['playerX' => $rich->id,       'playerO' => $pike->id, 'current_player' => $pike->id, 'game_over' => 1]);
-        $game5 = Game::create(['playerX' => $reinken->id,    'playerO' => $rich->id, 'current_player' => $rich->id, 'game_over' => 0]);
+        $game1 = Game::create(['playerX' => $reinken->id,    'playerO' => $pike->id, 'current_player' => $pike->id, 'game_over' => 1, 'board' => "{['O','X','O'],['X','O','X'],['O','','X']}"]);
+        $game2 = Game::create(['playerX' => $reinken->id,    'playerO' => $sara->id, 'current_player' => $sara->id, 'game_over' => 1, 'board' => "{['O','X','O'],['X','O','X'],['O','','X']}"]);
+        $game3 = Game::create(['playerX' => $pike->id,       'playerO' => $sara->id, 'current_player' => $pike->id, 'game_over' => 1, 'board' => "{['','','X'],['O','O','X'],['X','O','X']}"]);
+        // $game4 = Game::create(['playerX' => $rich->id,       'playerO' => $pike->id, 'current_player' => $pike->id, 'game_over' => 1]);
+        // $game5 = Game::create(['playerX' => $reinken->id,    'playerO' => $rich->id, 'current_player' => $rich->id, 'game_over' => 0]);
 
         // create dummy moves
         Move::create(['squareX' => 1, 'squareY' => 0, 'user_id' => $reinken->id,    'game_id' => $game1->id]);
