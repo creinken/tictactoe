@@ -1,4 +1,15 @@
-const serverURL = 'http://localhost:8000';
+const serverURL = 'http://localhost:8000/';
+
+export const fetchGame = (url) => {
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_GAME'})
+        fetch(`${serverURL}api${url}`)
+        .then(res => { return res.json() })
+        .then(json => {
+            dispatch({ type: 'GET_GAME', payload: json })
+        })
+    }
+}
 
 export const player_join = (player) => {
     return {

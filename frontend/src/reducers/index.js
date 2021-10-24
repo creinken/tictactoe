@@ -3,6 +3,6 @@ import playersReducer from './players';
 import gameReducer from './game';
 
 export default combineReducers({
-    players: playersReducer,
-    game: gameReducer
+    playersReducer,
+    gameReducer
 });

@@ -14,14 +14,13 @@ class BoardSquare extends Component {
         return (
             <button className="square" onClick={() => this.props.add_token(this.handleOnClick(this.props.X, this.props.Y, this.token))}>
                 {this.props.board[this.props.X][this.props.Y]}
-                {console.log(this.props)}
             </button>
         );
     }
 }
 
 const mapStateToProps = state => {
-    return {board: state.game.board}
+    return {board: state.gameReducer.game.board}
 }
 
 const mapDispatchToProps = dispatch => {

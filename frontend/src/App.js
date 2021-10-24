@@ -20,10 +20,4 @@ class App extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         groups: state.groupsReducer.groups
-//     }
-// }
-
 export default App
