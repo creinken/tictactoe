@@ -40,6 +40,7 @@ class GameController extends Controller
         // for some reason returning an array [$game, $game->moves] returns the moves twice
         // this method returns just the game with the moves nested.
         $full_game = ['game' => $game, 'moves' => $game->moves];
+        console.log($game);
         return $full_game['game'];
     }
 

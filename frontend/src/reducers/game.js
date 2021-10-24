@@ -1,4 +1,4 @@
-const gameReducer = (state = { game: {id: 0, players: [], current_player: '', game_over: false, moves: [], board: [['','',''],['','',''],['','','']], loading: false }}, action) => {
+const gameReducer = (state = { game: {id: 0, players: [], current_player: '', game_over: false, moves: [], board: [['','',''],['','',''],['','','']]}, loading: false }, action) => {
     switch (action.type) {
         case 'LOADING_GAME':
             return {
