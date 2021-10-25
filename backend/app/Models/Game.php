@@ -10,7 +10,7 @@ use App\Models\User;
 class Game extends Model
 {
     use HasFactory;
-    protected $fillable = ['playerX', 'playerO', 'current_player', 'game_over'];
+    protected $fillable = ['playerX', 'playerO', 'current_player', 'game_over', 'board'];
 
     // relationships
     public function moves()
