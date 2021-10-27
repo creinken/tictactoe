@@ -26,23 +26,27 @@ function login(username, password) {
             );
     };
 
-    function logout() {
-        userService.logout();
-        return { type: userConstants.LOGOUT };
-    }
+    function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
+    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
+    function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
+}
 
-    function getAll() {
-        return dispatch => {
+function logout() {
+    userService.logout();
+    return { type: userConstants.LOGOUT };
+}
 
-            userService.getAll()
-                .then(
-                    users => dispatch(success(users)),
-                    error => dispatch(failure(error))
-                );
-        };
+function getAll() {
+    return dispatch => {
 
-        function request() { return { type: userConstants.GETALL_REQUEST }}
-        function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
-        function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
-    }
+        userService.getAll()
+            .then(
+                users => dispatch(success(users)),
+                error => dispatch(failure(error))
+            );
+    };
+
+    function request() { return { type: userConstants.GETALL_REQUEST }}
+    function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
+    function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
 }

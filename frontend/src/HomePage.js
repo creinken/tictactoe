@@ -25,7 +25,7 @@ class HomePage extends Component {
                     </ul>
                 }
                 <p>
-                    <Link to="/logout">Logout</Link>
+                    <Link to="/login">Logout</Link>
                 </p>
             </div>
         );
