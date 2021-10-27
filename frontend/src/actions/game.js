@@ -1,9 +1,9 @@
-const serverURL = 'http://localhost:8000/';
+import { serverURL } from "../constants"
 
 export const fetchGame = (url) => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_GAME'})
-        fetch(`${serverURL}api${url}`)
+        fetch(`${serverURL.URL}api${url}`)
         .then(res => { return res.json() })
         .then(json => {
             dispatch({ type: 'GET_GAME', payload: json })
@@ -35,7 +35,7 @@ export const add_move = (move) => {
 export const fetchMoves = (url) => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_MOVES'})
-        fetch(`${serverURL}${url}`)
+        fetch(`${serverURL.URL}${url}`)
         .then(res => { return res.json()})
         .then(json => {
             dispatch({ type: 'GET_MOVES', payload: json })
