@@ -43,11 +43,11 @@ class ApiController extends Controller
  
     public function authenticate(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('name', 'password');
 
         //valid credential
         $validator = Validator::make($credentials, [
-            'email' => 'required|email',
+            'name' => 'required|name',
             'password' => 'required|string|min:6|max:50'
         ]);
 
