@@ -13,6 +13,8 @@ class HomePage extends Component {
         const { user, users } = this.props;
         return (
             <div className="col-md-6 col-md-offset-3">
+                <h1>Hi {user.name}</h1>
+                <p>here's your profile page</p>
                 {users.loading && <em>Loading users...</em>}
                 {users.error && <span className="text-danger">ERROR: {users.error}</span>}
                 {users.items &&
