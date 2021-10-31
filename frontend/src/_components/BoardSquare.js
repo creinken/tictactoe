@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import React, { Component } from 'react';
-import { add_token } from "../actions/game";
+import { add_token } from "../_actions/game";
 
 class BoardSquare extends Component {
     token = 'X';

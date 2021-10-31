@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Board from './Board';
-import { fetchGame } from '../actions/game';
+import { fetchGame } from '../_actions/game';
 
 class Game extends Component {
 
