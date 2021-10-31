@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use \App\Models\User;
 use \App\Models\Game;
 use \App\Models\Move;
@@ -16,11 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $password = bcrypt('password');
         // create fake users
-        $reinken =  User::create(['name' => 'Silver84',     'email' => 'dragonlord26.cr@gmail.com', 'password' => 'password']);
-        $pike =     User::create(['name' => 'Piker',        'email' => 'Piker@gmail.com',           'password' => 'password']);
-        $sara =     User::create(['name' => 'Seppens',      'email' => 'seppens17@gmail.com',       'password' => 'password']);
-        $rich =     User::create(['name' => 'Rmarshall',    'email' => 'Rmarshall@gmail.com',       'password' => 'password']);
+        $reinken =  User::create(['username' => 'Silver84',     'email' => 'dragonlord26.cr@gmail.com', 'email_verified_at' => now(), 'password' => $password, 'remember_token' => Str::random(10)]);
+        $pike =     User::create(['username' => 'Piker',        'email' => 'Piker@gmail.com',           'email_verified_at' => now(), 'password' => $password, 'remember_token' => Str::random(10)]);
+        $sara =     User::create(['username' => 'Seppens',      'email' => 'seppens17@gmail.com',       'email_verified_at' => now(), 'password' => $password, 'remember_token' => Str::random(10)]);
+        $rich =     User::create(['username' => 'Rmarshall',    'email' => 'Rmarshall@gmail.com',       'email_verified_at' => now(), 'password' => $password, 'remember_token' => Str::random(10)]);
         User::factory(10)->create();
 
         // create dummy games

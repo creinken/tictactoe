@@ -14,9 +14,9 @@ class ApiController extends Controller
     public function register(Request $request)
     {
     	//Validate data
-        $data = $request->only('name', 'email', 'password');
+        $data = $request->only('username', 'email', 'password');
         $validator = Validator::make($data, [
-            'name' => 'required|string',
+            'username' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:6|max:50'
         ]);
@@ -28,7 +28,7 @@ class ApiController extends Controller
 
         //Request is valid, create new user
         $user = User::create([
-        	'name' => $request->name,
+        	'username' => $request->username,
         	'email' => $request->email,
         	'password' => bcrypt($request->password)
         ]);
@@ -43,11 +43,11 @@ class ApiController extends Controller
  
     public function authenticate(Request $request)
     {
-        $credentials = $request->only('name', 'password');
+        $credentials = $request->only('username', 'password');
 
         //valid credential
         $validator = Validator::make($credentials, [
-            'name' => 'required|name',
+            'username' => 'required|username',
             'password' => 'required|string|min:6|max:50'
         ]);
 
@@ -57,7 +57,7 @@ class ApiController extends Controller
         }
 
         //Request is validated
-        //Crean token
+        //Create token
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
                 return response()->json([
