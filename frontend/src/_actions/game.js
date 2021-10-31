@@ -1,4 +1,4 @@
-import { serverURL } from "../constants"
+import { serverURL } from "../_constants"
 
 export const fetchGame = (url) => {
     return (dispatch) => {
